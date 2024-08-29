@@ -1,0 +1,56 @@
+{{ block title }}
+    Course Selection
+{{ endblock }}
+{{ block content }}
+    <p>
+    If you need to read a reminder of the key instructions, please click the button below:
+        <details>
+
+            <summary>Key Instructions</summary>
+
+            <p>
+                For the purpose of this task, you are given a numerical score of 80.00 to be used to apply for university courses for the year of 2024. You will be made an offer to a course if your score is higher than the LSS for 2024, which is not known to you currently.
+            </p>
+            <p>
+                Based on your preferences, a process will determine whether you are made an offer to a course. This process takes the first-preferred course on your preference list and:
+            </p>
+            <ul type="circle">
+                <li> if you are made an offer to your first-preferred course, you will then be paid the associated monetary payoff. </li>
+                <li> if you are not made an offer, you are then considered for your second-preferred course. </li>
+            </ul>
+            <p>
+                This process continues until all five preferences have been exhausted. If you are made an offer to a university course, you will be paid the associated monetary amount as a bonus payment in addition to your participation fee of £1.50.
+            </p>
+            <p>
+                The further below that your score of 80.00 is from the 2023 LSS, the lesser the chance of being made an offer. Conversely, the further above that your score is from the 2023 LSS, the greater the chance of being made an offer.
+            </p>
+
+        </details>
+    </p>
+
+    {{ if player.treatment_type == 1 }}
+    <p>Place your most preferred course as your first preference, followed by your second and third preferences and so on.</p>
+    {{ endif }}
+
+    {{ if player.treatment_type == 2}}
+    <p>Place your most preferred course as your first preference, followed by your second and third preferences and so on.</p>
+    <p><b> If you do not get made an offer to a course from this current batch of preferences, you may re-select different preferences in the following batches until you are made an offer.
+            This is batch number {{ player.round_number }} of {{ C.NUM_ROUNDS}}. </b></p>
+    {{ endif }}
+
+    {{ if player.treatment_type == 3}}
+    <p>Place your most preferred course as your first preference, followed by your second and third preferences and so on.</p>
+    <p>A word of advice: <u>List your 'dream preference' as your first preference but follow that with realistic choices. At the bottom of the preference list you should include one or two 'safe' choices to ensure that you get an offer.</u></p>
+    {{ endif }}
+
+    {{ if player.treatment_type == 4 }}
+    <p>Place your most preferred course as your first preference, followed by your second and third preferences and so on.</p>
+    <p><b> If you do not get made an offer to a course from this current batch of preferences, you may re-select different preferences in the following batches until you are made an offer.
+            This is batch number {{ player.round_number }} of {{ C.NUM_ROUNDS}}. </b></p>
+    <p>A word of advice: <u>It is in your best interests to list your preferences truthfully.</u></p>
+    {{ endif }}
+
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}

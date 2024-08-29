@@ -1,0 +1,31 @@
+{{ block title }}
+    Results of Course Selection
+{{ endblock }}
+{{ block content }}
+
+    <p>
+        {{ if player.payoff > 0 }}
+            Congratulations! You were made an offer to course number:
+    <p>
+        <b> {{ matched_course }} </b>
+    </p>
+    <p>
+        You will be awarded a bonus monetary payoff of {{ participant.payoff }} in addition to your participation fee of £0.75.
+    </p>
+    <p>
+        {{ else }}
+            {{ if player.treatment_type == 2 }}
+                In this batch, you were not made an offer to a course. Please choose other courses in the next batch of preferences.
+            {{ else }}
+                Unfortunately, you were not made an offer to a course so there is no bonus monetary
+                payoff in addition to your participation fee of £0.75.
+            {{ endif }}
+        {{ endif }}
+    </p>
+    <p>
+        Please click 'Next'.
+    </p>
+    {{ next_button }}
+{{ endblock }}
+
+

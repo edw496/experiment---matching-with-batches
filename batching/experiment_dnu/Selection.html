@@ -1,0 +1,50 @@
+{{ block title }}
+    Course Selection
+{{ endblock }}
+{{ block content }}
+    <p>
+    Reminder of instructions:
+        <details>
+
+            <summary>Show/Hide</summary>
+
+            <p>
+                For the purpose of this task, you are given a numerical score of 80.00 to be used to apply for university courses for the year of 2024. You will be made an offer to a course if your score is higher than the LSS for 2024, which is not known to you currently.
+            </p>
+            <p>
+                Based on your preferences, a procedure will determine whether you are made an offer to a course. This process takes the first-preferred course on your preference list and:
+            </p>
+            <ul type="circle">
+                <li> if you are made an offer to your first-preferred course, you will then be paid the associated monetary payoff. </li>
+                <li> if you are not made an offer, you are then considered for your second-preferred course. </li>
+            </ul>
+            <p>
+                The further below that your score of 80.00 is from the 2023 LSS, the lesser the chance of being made an offer. Conversely, the further above that your score is from the 2023 LSS, the greater the chance of being made an offer.
+            </p>
+
+        </details>
+    </p>
+
+    {{ if player.treatment_type == 2}}
+    <p>
+        First on your list should be the course you’d most like, followed by your second and third preferences and so on. It is in your best interests to list your preferences truthfully.
+    </p>
+    <p>
+        <b> If you do not get made an offer to a course from this current batch of preferences, you may re-select different preferences in the following batches until you are made an offer.
+            This is batch number {{ player.round_number }} of {{ C.NUM_ROUNDS}}. </b>
+    </p>
+
+    {{ else }}
+    <p>
+        First on your list should be the course you’d most like, followed by your second and third preferences and so on.
+    </p>
+
+    {{ endif }}
+
+<p> <b> {{ if player.round_number > 1 }} You previously selected courses {{ chosen_courses }}.  {{ endif }} </b>
+    </p>
+
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}
